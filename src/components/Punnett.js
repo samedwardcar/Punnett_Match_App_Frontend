@@ -9,14 +9,21 @@ const DAD = ['f', 'f']
 
 const cross = Freckles.cross(MOM, DAD);
 
-var dalleles = [ document.getElementById('dallele1'), document.getElementById('dallele2') ]
-// var dallele2 = document.getElementById('dallele2')
-var malleles = [ document.getElementById('mallele1'), document.getElementById('mallele2') ]
-// var mallele2 = document.getElementById('mallele2')
+const DimplesTraits = ['Dimples', 'No dimples'];
+const Dimples = new PunnettSquare(DimplesTraits);
+const mommy = ['Dimples', 'No dimples']
+const daddy = ['No dimples', 'No dimples']
+
+const DimplesCross = Dimples.cross(mommy, daddy)
+var dallele1Value = document.getElementById('dallele1')
+var dalleles = [ document.getElementById("dallele1"), document.getElementById("dallele2") ]
+// console.log(dallele1Value.value())
+var malleles = [ document.getElementById("mallele1'"), document.getElementById("mallele2") ]
+
 const FrecklesDynamic = new PunnettSquare(FrecklesTraits);
 var mom = { malleles };
 var dad = { dalleles };
-// const dad = ['${dallele1}', '${dallele2}']
+
 console.log({ dalleles })
 
 const dynamicCross = FrecklesDynamic.cross(mom, dad);
@@ -28,11 +35,11 @@ export default function Punnett(){
    
     <div>
         Static results are: {cross}
-      
+      Dimples results are: {DimplesCross}
     </div>
     <div>
         <p>Dad's Geneotype:
-            <label for ='dalleles'>Allele's</label>
+            <label htmlFor ='dalleles'>Allele's</label>
                 <select name="dallele1" id="dallele1">
                     <option defaultValue="F">F</option>
                     <option value="f">f</option>
@@ -43,18 +50,21 @@ export default function Punnett(){
                 </select>
         </p>  
         <p>Mom's Geneotype:
-            <label for ='malleles'>Allele's</label>
+            <label htmlFor ='malleles'>Allele's</label>
                 <select name="mallele1" id="mallele1">
-                    <option value="F" selected>F</option>
+                    <option defaultValue="F">F</option>
                     <option value="f">f</option>
                 </select>
                 <select name="mallele2" id="mallele2">
-                    <option value="F" selected>F</option>
-                    <option value="f">f</option>
+                    <option value="F">F</option>
+                    <option defaultValue="f">f</option>
                 </select>
         </p> 
+        
         Dynamic results are: {dynamicCross}
     </div>
     </>
     )
 }
+
+console.log({dalleles})
