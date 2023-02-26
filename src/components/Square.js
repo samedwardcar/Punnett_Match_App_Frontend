@@ -1,6 +1,7 @@
 
 import React , {useState} from "react";
 import PunnettSqure from 'punnett-square';
+import { Grid } from "@mui/material";
 
 const Square = () => {
     //freckles
@@ -67,8 +68,11 @@ const Square = () => {
     return(
         <>
         <h1>Square Page punnett</h1>
-        <div>
-           
+        
+           <Grid container 
+                justifyContent="center"
+                >
+            <Grid item xs={4}>
             <label>Dad's Father: Freckles or not?</label>
             <select onChange={(e) => onChange(e, setDadPaternalFreckleValue)} className='form-select'>
             
@@ -83,10 +87,11 @@ const Square = () => {
                 <option value="No Freckles">No Freckles</option>
             </select>
             {<h2>{dadMaternalFreckleValue}</h2>}
-          
-        </div>
+            </Grid>
+            
+        
        
-        <div>
+        <Grid item xs={4}>
             <label>Mom's Father: Freckles or not?</label>
             <select onChange={(e) => onChange(e, setMomPaternalFreckleValue)} className='form-select'>
             
@@ -101,8 +106,13 @@ const Square = () => {
                 <option value="No Freckles">No Freckles</option>
             </select>
             {momMaternalFreckleValue && <h2>{momMaternalFreckleValue}</h2>}
-        </div>
-        <div>
+        </Grid>
+        </Grid>
+        <Grid 
+            container
+            justifyContent="center"
+            >
+            <Grid item xs={4}>
             <label> Dad's Father Bald or not?</label>
             <select onChange={(e) => onChange(e, setDadPaternalBaldness)} className='form-select'>
                 <option value="Bald">Bald</option>
@@ -116,8 +126,8 @@ const Square = () => {
                 <option value="Not Bald">Not Bald</option>
             </select>
             {<h2>{dadMaternalBaldness}</h2>}
-        </div>
-        <div>
+            </Grid>
+        <Grid item xs={4}>
             <label>Mom's Father Bald or not?</label>
             <select onChange={(e) => onChange(e, setMomPaternalBaldness)} className='form-select'>
                 <option value="Bald">Bald</option>
@@ -131,8 +141,13 @@ const Square = () => {
                 <option value="Not Bald">Not Bald</option>
             </select>
             {<h2>{momMaternalBaldness}</h2>}
-        </div>
-        <div>
+        </Grid>
+        </Grid>
+        <Grid 
+            container
+            justifyContent="center"
+            >
+        <Grid item xs={4}>
             <label>Dad's Father Dimples?</label>
             <select onChange={(e) => onChange(e, setDadPaternalDimples)} className='form-select'>
                 <option value="Dimples">Dimples</option>
@@ -145,8 +160,8 @@ const Square = () => {
                 <option value="No Dimples">No Dimples</option>
             </select>
             <h2>{dadMaternalDimples}</h2>
-        </div>
-        <div>
+        </Grid>
+        <Grid item xs={4}>
             <label>Mom's Father Dimples?</label>
             <select onChange={(e) => onChange(e, setMomPaternalDimples)} className='form-select'>
                 <option value="Dimples">Dimples</option>
@@ -159,7 +174,8 @@ const Square = () => {
                 <option value="No Dimples">No Dimples</option>
             </select>
             <h2>{momMaternalDimples}</h2>
-        </div>
+        </Grid>
+        </Grid>
         <div>
             <button onClick={handleCalulation}>Calculate</button>
             
@@ -168,10 +184,16 @@ const Square = () => {
             {FreckleSquare.length > 0 &&   
                 FreckleSquare.map((elem, idx) => {
                     return (
+                        <Grid container
+                        justifyContent="center">
+                        
                         <div style={style} key={`box=${idx}`}>
-                            <span>{elem[0]}</span>
-                            <span>{elem[1]}</span>
+                            <Grid item><span>{elem[0]}</span></Grid>
+                            <Grid item>
+                            <span>{elem[1]}</span></Grid>
                         </div>
+                        
+                        </Grid>
                     )
                 })
             }
