@@ -3,13 +3,15 @@ import React , {useState} from "react";
 import PunnettSqure from 'punnett-square';
 
 const Square = () => {
-    const [paternalFreckleValue, setPaternalFreckleValue] = useState('Freckles');
-    const [maternalFreckleValue, setMaternalFreckleValue] = useState('Freckles');
-    const [paternalBaldness, setPaternalBaldness] = useState(null);
-    const [maternalBaldness, setMaternalBaldness] = useState(null);
-    const [paternalDimples, setPaternalDimples] = useState(null);
-    const [maternalDimples, setMaternalDimples] = useState(null);
-    const [square, setSquare] = useState([])
+    const [dadPaternalFreckleValue, setDadPaternalFreckleValue] = useState('Freckles');
+    const [dadMaternalFreckleValue, setDadMaternalFreckleValue] = useState('No Freckles');
+    const [momPaternalFreckleValue, setMomPaternalFreckleValue] = useState('Freckles');
+    const [momMaternalFreckleValue, setMomMaternalFreckleValue] = useState('No Freckles');
+    const [paternalBaldness, setPaternalBaldness] = useState('Bald');
+    const [maternalBaldness, setMaternalBaldness] = useState('Not Bald');
+    const [paternalDimples, setPaternalDimples] = useState('Dimples');
+    const [maternalDimples, setMaternalDimples] = useState("No Dimples");
+    const [FreckleSquare, setFreckleSquare] = useState([])
     const onChange = (event, updateFunction) => {
         console.log(event.target.value)
         const value = event.target.value;
@@ -19,11 +21,11 @@ const Square = () => {
     const handleCalulation = () => {
         const FreckleTraits = ['Freckles', 'No Freckles'];
         const freckleSquare = new PunnettSqure(FreckleTraits);
-        const MOM = [maternalFreckleValue, paternalFreckleValue];
-        const DAD = [paternalFreckleValue, maternalFreckleValue];
+        const MOM = [momMaternalFreckleValue, momPaternalFreckleValue];
+        const DAD = [dadPaternalFreckleValue, dadMaternalFreckleValue];
         const cross = freckleSquare.cross(MOM, DAD)
-        console.log(maternalFreckleValue, paternalFreckleValue)
-        setSquare(cross)
+        
+        setFreckleSquare(cross)
           console.log(  { cross } )
         
 
@@ -40,19 +42,35 @@ const Square = () => {
         <h1>Square Page punnett</h1>
         <div>
             <label>Father: Freckles or not?</label>
-            <select onChange={(e) => onChange(e, setPaternalFreckleValue)} className='form-select'>
+            <select onChange={(e) => onChange(e, setDadPaternalFreckleValue)} className='form-select'>
             
                 <option value="Freckles">Freckles</option>
                 <option value="No Freckles">No Freckles</option>
             </select>
-            {paternalFreckleValue && <h2>{paternalFreckleValue}</h2>}
+            {<h2>{dadPaternalFreckleValue}</h2>}
             <label>Mother: Freckles or not?</label>
-            <select onChange={(e) => onChange(e, setMaternalFreckleValue)} className='form-select'>
+            <select onChange={(e) => onChange(e, setDadMaternalFreckleValue)} className='form-select'>
             
                 <option value="Freckles">Freckles</option>
                 <option value="No Freckles">No Freckles</option>
             </select>
-            {maternalFreckleValue && <h2>{maternalFreckleValue}</h2>}
+            {<h2>{dadMaternalFreckleValue}</h2>}
+        </div>
+        <div>
+            <label>Father: Freckles or not?</label>
+            <select onChange={(e) => onChange(e, setMomPaternalFreckleValue)} className='form-select'>
+            
+                <option value="Freckles">Freckles</option>
+                <option value="No Freckles">No Freckles</option>
+            </select>
+            {<h2>{momPaternalFreckleValue}</h2>}
+            <label>Mother: Freckles or not?</label>
+            <select onChange={(e) => onChange(e, setMomMaternalFreckleValue)} className='form-select'>
+            
+                <option value="Freckles">Freckles</option>
+                <option value="No Freckles">No Freckles</option>
+            </select>
+            {momMaternalFreckleValue && <h2>{momMaternalFreckleValue}</h2>}
         </div>
         <div>
             <label>Father Bald or not?</label>
@@ -88,8 +106,8 @@ const Square = () => {
             
         </div>
         <div>
-            {square.length > 0 &&   
-                square.map((elem, idx) => {
+            {FreckleSquare.length > 0 &&   
+                FreckleSquare.map((elem, idx) => {
                     return (
                         <div style={style} key={`box=${idx}`}>
                             <span>{elem[0]}</span>
