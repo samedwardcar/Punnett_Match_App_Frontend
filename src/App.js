@@ -14,6 +14,7 @@ import Contact from './components/Contact';
 import Punnett from './components/Punnett';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Square from './components/Square';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <li><Link to="/Punnett">Punnett</Link></li>
           <li><Link to="/Login">Login</Link> </li>
           <li><Link to="/Signup">Signup</Link> </li>
+          <li><Link to="/Square">Square</Link></li>
         </ul>
       </nav>
    <Routes>
@@ -33,6 +35,7 @@ function App() {
     <Route path="/Punnett" element={<Punnett />} />
     <Route path="/Login" element={<Login />} />
     <Route path="/Signup" element={<Signup />} />
+    <Route path='/Square' element={<Square />} />
    </Routes>
    </>
   );
