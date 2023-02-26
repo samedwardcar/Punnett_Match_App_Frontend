@@ -15,7 +15,7 @@ const mommy = ['Dimples', 'No dimples']
 const daddy = ['No dimples', 'No dimples']
 
 const DimplesCross = Dimples.cross(mommy, daddy)
-var dallele1Value = document.getElementById('dallele1')
+// var dallele1Value = document.getElementById('dallele1')
 var dalleles = [ document.getElementById("dallele1"), document.getElementById("dallele2") ]
 // console.log(dallele1Value.value())
 var malleles = [ document.getElementById("mallele1'"), document.getElementById("mallele2") ]
@@ -67,4 +67,3 @@ export default function Punnett(){
     )
 }
 
-console.log({dalleles})
