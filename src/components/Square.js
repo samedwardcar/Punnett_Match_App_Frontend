@@ -23,6 +23,7 @@ const Square = () => {
     const [FreckleSquare, setFreckleSquare] = useState([]);
     let [baldSquare, setBaldSquare] = useState([]);
     let [dimpleSquare, setDimpleSquare] = useState([]);
+
     const onChange = (event, updateFunction) => {
         console.log(event.target.value)
         const value = event.target.value;
@@ -45,7 +46,7 @@ const Square = () => {
         let baldCross = baldSquare.cross(momBaldness, dadBaldness);
         setBaldSquare(baldCross);
         
-        let dimpleTraits = ['Dimples', 'No dimples'];
+        let dimpleTraits = ['Dimples', 'No Dimples'];
         let dimpleSquare = new PunnettSqure(dimpleTraits);
         let momDimple = [momPaternalDimples, momMaternalDimples];
         let dadDimple = [dadPaternalDimples, dadMaternalDimples];
@@ -141,7 +142,7 @@ const Square = () => {
             <label>Dad's Mother Dimples?</label>
             <select onChange={(e) => onChange(e, setDadMaternalDimples)} className='form-select'>
                 <option value="Dimples">Dimples</option>
-                <option value="No Dimples">Not Bald</option>
+                <option value="No Dimples">No Dimples</option>
             </select>
             <h2>{dadMaternalDimples}</h2>
         </div>
@@ -155,7 +156,7 @@ const Square = () => {
             <label>Mom's Mother Dimples?</label>
             <select onChange={(e) => onChange(e, setMomMaternalDimples)} className='form-select'>
                 <option value="Dimples">Dimples</option>
-                <option value="No Dimples">Not Bald</option>
+                <option value="No Dimples">No Dimples</option>
             </select>
             <h2>{momMaternalDimples}</h2>
         </div>
@@ -178,6 +179,18 @@ const Square = () => {
         <div>
             {baldSquare.length > 0 &&   
                 baldSquare.map((elem, idx) => {
+                    return (
+                        <div style={style} key={`box=${idx}`}>
+                            <span>{elem[0]}</span>
+                            <span>{elem[1]}</span>
+                        </div>
+                    )
+                })
+            }
+        </div>
+        <div>
+            {dimpleSquare.length > 0 &&   
+                dimpleSquare.map((elem, idx) => {
                     return (
                         <div style={style} key={`box=${idx}`}>
                             <span>{elem[0]}</span>
