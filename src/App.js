@@ -20,7 +20,7 @@ import Navbar from './components/Navbar';
 function App() {
   return (
     <>
-    { Navbar }
+     <Navbar />
       <nav>
         <ul>
           <li><Link to="/">Home</Link> </li>
