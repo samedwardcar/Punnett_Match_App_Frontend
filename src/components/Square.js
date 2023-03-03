@@ -230,22 +230,30 @@ const Square = () => {
     </Grid>
   </div>
 </div>
-<div style={{ textAlign: 'center', marginTop: '50px' }}>
-    <h2>Your baby's chances of having dimples:</h2>
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', width: '300px' }}>
-            {dimpleSquare.length > 0 &&   
-                dimpleSquare.map((elem, idx) => {
-                    return (
-                        <div style={{ ...style, width: '50%', textAlign: 'center' }} key={`box=${idx}`}>
-                            <span>{elem[0]}</span>
-                            <span>{elem[1]}</span>
-                        </div>
-                    )
-                })
-            }
-        </div>
-    </div>
+<div style={{ textAlign: 'center', marginTop: '20px' }}>
+  <Typography variant="h6" gutterBottom>Your baby's chances of having dimples:</Typography>
+  <div style={{ width: "200px", height: "200px", display: "flex", justifyContent: "center", margin: "20px auto" }}>
+    <Grid container spacing={2} justify="center">
+      {[0, 1].map((row) => (
+        <Grid key={`row-${row}`} item container xs={6} spacing={2} direction="column" alignItems="center">
+          {[0, 1].map((col) => {
+            const idx = row * 2 + col;
+            const elem = dimpleSquare[idx] || []; // handle case where dimpleSquare has less than 4 elements
+            return (
+              <Grid style={style} item key={`box=${idx}`} container xs={6} direction="column" alignItems="center">
+                <Grid item>
+                  <span>{elem[0]}</span>
+                </Grid>
+                <Grid item>
+                  <span>{elem[1]}</span>
+                </Grid>
+              </Grid>
+            );
+          })}
+        </Grid>
+      ))}
+    </Grid>
+  </div>
 </div>
         </>
     )
