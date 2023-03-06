@@ -15,12 +15,12 @@ import Punnett from './components/Punnett';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Square from './components/Square';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 
 function App() {
   return (
     <>
-     <Navbar />
+     {/* <Navbar /> */}
       <nav>
         <ul>
           <li><Link to="/">Home</Link> </li>
