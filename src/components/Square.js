@@ -61,7 +61,7 @@ const Square = () => {
     }
 
     const style = {
-        border: 'solid',
+        border: 'solid white',
 
     }
 

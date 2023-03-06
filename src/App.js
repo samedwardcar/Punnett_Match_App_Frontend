@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './style.css';
 // import React from 'react';
 // import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import Nav from './components/Nav';
@@ -11,7 +11,7 @@ import './App.css';
 import { Route, Routes, Link } from 'react-router-dom';
 import Home from './components/Home';
 import Contact from './components/Contact';
-import Punnett from './components/Punnett';
+// import Punnett from './components/Punnett';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Square from './components/Square';
@@ -20,12 +20,13 @@ import Square from './components/Square';
 function App() {
   return (
     <>
+    <body>
      {/* <Navbar /> */}
       <nav>
         <ul>
           <li><Link to="/">Home</Link> </li>
           <li><Link to="/Contact">Contact</Link></li>
-          <li><Link to="/Punnett">Punnett</Link></li>
+          {/* <li><Link to="/Punnett">Punnett</Link></li> */}
           <li><Link to="/Login">Login</Link> </li>
           <li><Link to="/Signup">Signup</Link> </li>
           <li><Link to="/Square">Square</Link></li>
@@ -34,11 +35,12 @@ function App() {
    <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/Contact" element={<Contact />} />
-    <Route path="/Punnett" element={<Punnett />} />
+    {/* <Route path="/Punnett" element={<Punnett />} /> */}
     <Route path="/Login" element={<Login />} />
     <Route path="/Signup" element={<Signup />} />
     <Route path='/Square' element={<Square />} />
    </Routes>
+   </body>
    </>
   );
 }
